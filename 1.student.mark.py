@@ -1,45 +1,90 @@
-print("Number of student: ")
-num_stu = int(input())
-id_stu=[]
-name_stu=[]
-dob_stu=[]
-for i in range(num_stu):
-    id_sinhvien = input("ID of student "+str(i+1)+": ")
-    id_stu.append(id_sinhvien)
-    name_sinhvien = input("Name of student "+str(i+1)+": ")
-    name_stu.append(name_sinhvien)
-    dob = input("DOB of student "+str(i+1)+": ")
-    dob_stu.append(dob)
+#Store the number of lecturers,students,subject and mark
+lecturer = []
+student = []
+id_student = []
+subject = []
+id_sub = []
+stu_mark = []
 
-print("Number of course")
-num_cou = int(input())
-id_cou =[]
-name_cou=[]
-mark_stu =[]
-count = 0
+# Define the nubmer of lecturer
+def number_of_lecturer():
+    n =int(input("Number of the lecturer: "))
+    while n<= 0:
+        print("Number of lecturer must greater than 0!Try again")
+        n =int(input("Number of the lecturer: "))
+    for i in range(n):
+        lec = input(f"Name of the lecturer {i+1}: ")
+        lecturer.append(lec)
+    
+# Define the number of student
+def number_of_student():
+    n =int(input("Number of the student: "))
+    while n<= 0:
+        print("Number of student must greater than 0!Try again")
+        n =int(input("Number of the student: "))
+    for i in range(n):
+        id = input(f"Id of the student {i+1}: ")
+        id_student.append(id)
+        stu = input(f"Name of the student {i+1}: ")
+        student.append(stu)
+    
+    
+# Define the number of subjects and marks of subject for each student
+def number_of_course():
+    n =int(input("Number of the subject: "))
+    while n<= 0:
+        print("Number of subject must greater than 0!Try again")
+        n =int(input("Number of the subject: "))
+    for i in range(n):
+        id = input(f"Id of the subject {i+1}: ")
+        id_sub.append(id)
+        sub = input(f"Name of the subject {i+1}: ")
+        subject.append(sub)
+    
+    
+def mark_of_student():
+    for i in range(len(student)):
+        for j in range(len(subject)):
+            mark = float(input(f"{subject[j]} mark of student {student[i]}: "))
+            while mark <=0:
+                print("Mark number must greater than 0!Try again")
+                mark = float(input(f"{subject[j]} mark of student {student[i]}: "))
+            stu_mark.append(mark)
 
-for i in range(num_cou):
-    id_course = input("ID of the course "+str(i+1)+": ")
-    id_cou.append(id_course)
-    name_course = input("Name of the course "+str(i+1)+": ")
-    name_cou.append(name_course)
+# Define output
+def list_output():
+    cnt = 0
+    print(" ")
+    print("List of lecturers: ")
+    print("Name")
+    for i in range(len(lecturer)):
+        print(f"{lecturer[i]}")
+    print(" ")
+    print("List of student: ")
+    print("ID  Name")
+    for i in range(len(student)):
+        print(f"{id_student[i]}  {student[i]}")
+    print(" ")
+    print("List of subject: ")
+    print("ID  Subject")
+    for i in range(len(subject)):
+        print(f"{id_sub[i]}  {subject[i]}")
+    print(" ")
+    print("Mark of student: ")
+    print("Name   Subject   Mark")
+    for i in range(len(student)):
+        print(f"{student[i]}: ")
+        for j in range(len(subject)):
+            print(f"       {subject[j]}:    {stu_mark[cnt]}")
+            cnt+=1
 
-for i in range(num_cou):
-    for j in range(num_stu): 
-        mark=str(float(input(name_cou[i]+" mark of student "+ name_stu[j]+": ")))
-        mark_stu.append(mark)
+# Define main
+def main():
+    number_of_lecturer()
+    number_of_student()
+    number_of_course()
+    mark_of_student()
+    list_output()
 
-print("List of the student: ")
-for i in range(num_stu):
-    print("           "+id_stu[i]+" "+name_stu[i]+" "+dob_stu[i])
-print("List of the course: ")
-for k in range(num_cou):
-    print("           "+id_cou[k]+" "+name_cou[k])
-print("List of the mark student: ")
-for j in range(num_cou):
-    print("          "+name_stu[j]+": ")
-    for i in range(num_cou):
-        print("                  "+name_cou[i]+" "+mark_stu[count])
-        count+=1
-        
-
+main()
+    
