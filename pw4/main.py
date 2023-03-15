@@ -1,2 +1,3 @@
-from input import main
-main()
+from input import *
+from output import *
+

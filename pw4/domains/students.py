@@ -1,4 +1,4 @@
-from person import Person
+from domains.person import Person
 class Student(Person):
     def __init__(self, id: int,name: str,dob: str):
         super().__init__(name)

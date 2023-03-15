@@ -1,12 +1,7 @@
-from input import all_student
-from input import all_subject
-from input import students
-from input import subjects
-from input import marks
-from input import credit
-from input import sum_credit
+from input import all_student,all_subject,students,subjects,marks,credit,sum_credit
 from domains.gpa import avg_gpa
 import math
+
 
 avarage_gpa = []
 mul_gpa = []
@@ -18,13 +13,13 @@ print(" ")
 print("List of the student: ")
 for i in range(len(all_student)):
     print(all_student[i])
- 
+    
 # Output list of subjects
 print(" ")
 print("List of the subjects: ")
 for i in range(len(all_subject)):
     print(all_subject[i])
- 
+    
 # Output list mark of students
 print(" ")
 for i in range(len(students)):
@@ -32,7 +27,7 @@ for i in range(len(students)):
     for j in range(len(subjects)):
         print(f"        {subjects[j]}: {marks[cnt]}")
         cnt+=1
- 
+    
 # Output list round-down mark of students
 count = 0
 print("Round-down mark of student")
